@@ -6,6 +6,7 @@ import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.http.ContentType
 import io.ktor.http.ContentType.Application.Json
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
@@ -15,6 +16,6 @@ fun createHttpClient() = HttpClient {
         json(Json {
             ignoreUnknownKeys = true
             isLenient = true
-        })
+        }, contentType = ContentType.Any)
     }
 }

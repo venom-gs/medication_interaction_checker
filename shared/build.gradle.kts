@@ -5,8 +5,9 @@ plugins {
     alias(libs.plugins.androidMultiplatformLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    id("com.google.devtools.ksp") version "2.3.7"
+    kotlin("plugin.serialization")
     id("de.jensklingenberg.ktorfit") version "2.7.3"
+    id("com.google.devtools.ksp") version "2.3.7"
 }
 
 kotlin {
@@ -42,6 +43,7 @@ kotlin {
             implementation(libs.compose.uiToolingPreview)
         }
         commonMain.dependencies {
+            implementation(compose.materialIconsExtended)
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
